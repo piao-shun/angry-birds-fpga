@@ -1,0 +1,63 @@
+//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//All rights reserved. 
+//File Title: Physical Constraints file
+//GOWIN Version: 1.9.9 Beta-4
+//Part Number: GW1N-LV9LQ144C6/I5
+//Device: GW1N-9
+//Device Version: C
+//Created Time: Mon 09 18 16:33:00 2023
+  
+IO_LOC "vga_data[11]" 124;
+IO_PORT "vga_data[11]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[10]" 123;
+IO_PORT "vga_data[10]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[9]" 121;
+IO_PORT "vga_data[9]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[8]" 120;
+IO_PORT "vga_data[8]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[7]" 132;
+IO_PORT "vga_data[7]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[6]" 131;
+IO_PORT "vga_data[6]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[5]" 129;
+IO_PORT "vga_data[5]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[4]" 128;
+IO_PORT "vga_data[4]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[3]" 139;
+IO_PORT "vga_data[3]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[2]" 138;
+IO_PORT "vga_data[2]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[1]" 136;
+IO_PORT "vga_data[1]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_data[0]" 135;
+IO_PORT "vga_data[0]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_vs" 142;
+IO_PORT "vga_vs" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "vga_hs" 141;
+IO_PORT "vga_hs" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "rx_pin" 10;
+IO_PORT "rx_pin" PULL_MODE=UP BANK_VCCIO=1.8;
+IO_LOC "rst_n" 92;
+IO_PORT "rst_n" PULL_MODE=UP BANK_VCCIO=1.8;
+IO_LOC "clk" 6;
+IO_PORT "clk" PULL_MODE=UP BANK_VCCIO=1.8;
+
+
+
+IO_LOC "FPGA_BEEP" 34;
+
+IO_LOC "SEG[0]" 106;
+IO_LOC "SEG[1]" 102;
+IO_LOC "SEG[2]" 100;
+IO_LOC "SEG[3]" 98;
+IO_LOC "SEG[4]" 97;
+IO_LOC "SEG[5]" 104;
+IO_LOC "SEG[6]" 101;
+IO_LOC "SEG[7]" 99;
+
+IO_LOC "DIG[0]" 110;
+IO_LOC "DIG[1]" 111;
+IO_LOC "DIG[2]" 112;
+IO_LOC "DIG[3]" 113;
+IO_LOC "DIG[4]" 119;
+IO_LOC "DIG[5]" 122;

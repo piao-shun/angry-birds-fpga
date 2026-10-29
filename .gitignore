@@ -1,0 +1,42 @@
+# ---- Gowin EDA 中间产物（可由 .gprj 重新生成，不入库）----
+impl/
+temp/
+*.fs
+*.bin
+*.binx
+*.bit
+*.vg
+*.vo
+*.db
+*.log
+*.rpt
+*.rpt.html
+*.rpt.txt
+*.html
+*.xml
+*.json
+*.prj
+*.sav
+*.user
+*.bak
+*.str
+*.pin
+*.pnr
+
+# 但工程与约束本身必须入库
+!niao.gprj
+!niao.sdc
+!top.cst
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ---- 打包产物 ----
+*.rar
+*.zip
+*.7z
