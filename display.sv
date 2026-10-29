@@ -73,8 +73,9 @@ always@(posedge clk)
 	//显示 tube 4
 	else if (x_in >= tube4_x - TUBE_WIDTH && x_in < tube4_x && y_in < tube4_h)
 		rom_tube_addr <= (x_in + TUBE_WIDTH - tube4_x ) + (((y_in < tube4_h - TUBE_HEAD)? 'd0 :(y_in + TUBE_HEAD - tube4_h)) * TUBE_WIDTH);
-	else //if (x_in >= tube4_x - TUBE_WIDTH && x_in < tube4_x && y_in >= tube4_h + TUBE_GAP)
+	else if (x_in >= tube4_x - TUBE_WIDTH && x_in < tube4_x && y_in >= tube4_h + TUBE_GAP)
 		rom_tube_addr <= (x_in + TUBE_WIDTH - tube4_x ) + (((y_in  > tube4_h + TUBE_GAP + TUBE_HEAD)? 'd0 : (tube4_h + TUBE_GAP + TUBE_HEAD - y_in)) * TUBE_WIDTH);
+	//注意：这里必须带 x/y 范围判断，否则 (x_in + TUBE_WIDTH - tube4_x) 会下溢成巨大地址
 
 always@(posedge clk)
 	//显示“START”0 "END"1 2不显示

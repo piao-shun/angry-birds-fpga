@@ -52,15 +52,12 @@ begin
      endcase
 
 
+     // 位选：CLK_LED_100K = 100kHz，两位轮流点亮，肉眼等效同时显示
      case(wei)
-            2'b00:
-                begin DIG=6'b000010; SEG = data1[7:0]; end
-            2'b01:
-                begin DIG=6'b000001; SEG = data1[15:8]; end
-            default:
-                begin DIG=6'b000000; wei = 0; end
+        1'b0: begin DIG <= 6'b000010; SEG <= data1[7:0];  end
+        1'b1: begin DIG <= 6'b000001; SEG <= data1[15:8]; end
     endcase
-wei=wei+1;
+     wei <= ~wei;
 end
 
 

@@ -85,7 +85,7 @@ always@(posedge rgb_clk ,negedge rgb_rst_n) begin
 	if(rgb_rst_n == 'b0)
 		rgb_vs <= 'd0;
 	else if((v_cnt == V_FP - 1) && (h_cnt == H_FP - 1))//vertical sync begin
-		rgb_vs <= HS_POL;
+		rgb_vs <= VS_POL;
 	else if((v_cnt == V_FP + V_SYNC - 1) && (h_cnt == H_FP - 1))//vertical sync end
 		rgb_vs <= ~rgb_vs;  
 	else

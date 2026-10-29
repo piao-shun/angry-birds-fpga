@@ -95,10 +95,23 @@ niao/
 - **跨时钟域极简**：串口只有 9600 bps，用 `rgb_clk`（25 MHz）直接采样，
   `rx_d0/rx_d1` 两级同步后做下降沿检测；`rx_data_valid` 单拍脉冲送入游戏控制。
 
-## 6. 已知问题
+## 6. 版本修订
 
-代码审查结论见 [`docs/CODE_REVIEW.md`](docs/CODE_REVIEW.md)，其中 **P0 级**两项
-（管道高度溢出、小鸟坐标无符号下溢）会直接影响可玩性，建议参赛前修复。
+本版本已针对代码审查发现的缺陷完成修复，主要改动：
+
+| 位置 | 问题 | 修复 |
+| --- | --- | --- |
+| `game_ctrl.sv` | 管道缺口高度 `7-cnt` 在 cnt≥8 时为负，12 bit 截断后变成 4084/4068，整屏被管道堵死 | 改用三角波索引 `cnt[3] ? 15-cnt : cnt`，`100 + idx*16`，取值恒为 100\~212 |
+| `game_ctrl.sv` | 小鸟上升无下边界钳位，`bird_loc_y<20` 时无符号回绕 | 加 `(bird_loc_y > 20) ? bird_loc_y-20 : 0` |
+| `game_ctrl.sv` | 只有 `0x00` 能重开，终端打不出该字节 | 结束画面按任意键即可重开 |
+| `game_ctrl.sv` | 碰撞判定缺少管道横向重叠条件 | 增加 `tube1_x > 128 && tube1_x < 216` 必要条件 |
+| `display.sv` | 末级 `else` 无条件用 `tube4` 算地址，`x_in + 56 - tube4_x` 下溢 | 补上 x/y 范围判断 |
+| `rgb_timing.sv` | `rgb_vs` 用了 `HS_POL` 而非 `VS_POL` | 改为 `VS_POL` |
+| `uart_rx.v` | 采样直接用异步引脚 `rx_pin` | 改为采样已同步的 `rx_d0` |
+| `seg.v` | `case(wei)` 位宽写成 `2'b00`、阻塞赋值混用、不可达 `default` | 统一为 1 bit 选择 + 非阻塞赋值 |
+
+其余不影响功能的问题（日志、命名、缺 testbench 等）记录在
+[`docs/CODE_REVIEW.md`](docs/CODE_REVIEW.md)。
 
 ## 7. 许可
 

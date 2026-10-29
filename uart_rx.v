@@ -143,7 +143,7 @@ begin
 	if(rst_n == 1'b0)
 		rx_bits <= 8'd0;
 	else if(state == S_REC_BYTE && cycle_cnt == CYCLE/2 - 1)
-        rx_bits[bit_cnt] <= rx_pin;
+        rx_bits[bit_cnt] <= rx_d0;   // 采已过一级同步的 rx_d0，避免异步引脚直采的亚稳态
 	else
 		rx_bits <= rx_bits; 
 end
